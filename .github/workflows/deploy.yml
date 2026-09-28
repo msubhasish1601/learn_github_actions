@@ -6,7 +6,7 @@ on:
       - main 
 
 jobs:
-  # 1. THE CI PHASE (Keep this exactly as you had it)
+  # --- CI PHASE ---
   build:
     runs-on: ubuntu-latest
     steps:
@@ -18,12 +18,12 @@ jobs:
       - run: npm ci
       - run: npm test
 
-  # 2. THE CD PHASE: Build and Push Docker Image
+  # --- CD PHASE: Build & Push ---
   publish-image:
     needs: build
     runs-on: ubuntu-latest
     
-    # Grant the pipeline permission to write to GitHub Packages
+    # VIP Pass: Grants GitHub Actions permission to write to GHCR
     permissions:
       contents: read
       packages: write 
@@ -32,7 +32,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Officially supported Docker action to log in to GHCR
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -40,11 +39,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # Officially supported Docker action to build and push
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          # Dynamically tags the image with your GitHub username and repo name
+          # Tags the image as: ghcr.io/your-username/learn_github_actions:latest
           tags: ghcr.io/${{ github.repository }}:latest

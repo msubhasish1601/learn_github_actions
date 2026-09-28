@@ -1,13 +1,17 @@
-# Use a lightweight Node image
+# 1. Grab the "empty box" with Node.js pre-installed
 FROM node:20-alpine
+
+# 2. Create a folder inside the box to hold our code
 WORKDIR /app
 
-# Install dependencies
+# 3. Copy our recipe (package.json) into the box
 COPY package*.json ./
-RUN npm ci --only=production
 
-# Copy the rest of the application
+# 4. Install only the production ingredients (skips Jest)
+RUN npm ci --omit=dev
+
+# 5. Copy the rest of our code (index.js) into the box
 COPY . .
 
-# Command to run your app (assumes you have a "start" script in package.json)
-CMD ["npm", "start"]
+# 6. Tell the box what to do when someone turns it on
+CMD ["node", "index.js"]
