@@ -46,3 +46,6 @@ jobs:
           push: true
           # Tags the image as: ghcr.io/your-username/learn_github_actions:latest
           tags: ghcr.io/${{ github.repository }}:latest
+      
+      - name: Test the live container
+        run: docker run ghcr.io/${{ github.repository }}:latest
