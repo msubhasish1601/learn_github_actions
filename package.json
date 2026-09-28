@@ -1,10 +1,10 @@
 {
   "name": "learn_github_actions",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js CI/CD Pipeline",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/msubhasish1601/learn_github_actions/issues"
   },
-  "homepage": "https://github.com/msubhasish1601/learn_github_actions#readme"
+  "homepage": "https://github.com/msubhasish1601/learn_github_actions#readme",
+  "devDependencies": {
+    "jest": "^30.5.2"
+  }
 }

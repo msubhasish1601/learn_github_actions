@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+jspm_packages/
+web_modules/
+
+# Debugging & logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Local environment variables / Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data & Caches
+pids
+*.pid
+*.seed
+*.pid.lock
+.npm
+.eslintcache
+.stylelintcache
+.cache
+.parcel-cache
+
+# Build outputs & compiled frameworks
+dist/
+build/Release/
+.next/
+out/
+.nuxt/
+.output/
+
+# Testing coverage outputs
+coverage/
+*.lcov
+.nyc_output
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Operating system files
+.DS_Store
+Thumbs.db

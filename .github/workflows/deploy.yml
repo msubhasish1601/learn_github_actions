@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm ci # Faster, stricter alternative to npm install for CI environments
 
-      - name: Run Tests (Simulated)
-        run: echo "npm test would run here..."
+      - name: Run Tests
+        run: npm test
 
   # 3. THE CD PHASE: Continuous Deployment
   deploy:
